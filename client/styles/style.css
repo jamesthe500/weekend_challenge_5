@@ -1,0 +1,23 @@
+body {
+    background-color: #080808;
+    color: #111111;
+}
+
+.well {
+    background-color: #262626;
+    color: #dddddd;
+}
+
+.textOnList {
+    color: #fff;
+    float: left;
+}
+
+.del {
+    float: right;
+    color: #fff;
+}
+
+.true {
+    text-decoration: line-through;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Postgres TODO App</title>
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+    <!--SCRIPTS-->
+    <script type="text/javascript" src="/vendors/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/app.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div ng-app="formApp" ng-controller="formController">
+        <form novalidate>
+            <button class="btn btn-info" ng-click="getInfo()">Get Info</button><br>
+            <input type="text" ng-model="item"><br>
+            <button class="btn btn-info" ng-click="createTask()">Create Task</button>
+        </form>
+
+        <div id="someContainer" class="container">
+            <div class='task well col-md-3' ng-repeat="x in taskData" ng-click="completeTask(x.id, x.text, x.complete)"> <p class="textOnList {{x.complete}}">{{x.text}}</p> <button ng-click="deleteTask(x.id)" class="del btn btn-danger">X</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<!--
+Starting with the ng-app declaration, line 17...
+17 app and controller are established
+18 prevents html default form behaviour
+19 & 21 buttons are made and tied to functions which are $scope.function over yonder
+20 input field made, contents of which are defined as item here, $scope.item there.
+25 has a lot.
+ng-repeat is x (cuz whatever) in taskData (which is the exact array I need)
+elsewhere {{x.column}} is thus possible.
+ng-click is tied to completeTask() with all the variables. This is the x-out feature, which activates with a click anywhere on the div.
+class includes {{x.complete}} for identifying it in the stylesheet. true = line-through
+ng-click for the delete is tied to deleteTask() with x.id directly in it. why mess with data-ids?
+
+-->
